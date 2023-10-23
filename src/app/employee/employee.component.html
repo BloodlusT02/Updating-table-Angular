@@ -1,0 +1,62 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Salary</th>
+      <th>DOB</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeList">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.firstname }}</td>
+      <td>{{ emp.lastname }}</td>
+      <td>{{ emp.salary }}</td>
+      <td>{{ emp.dob }}</td>
+      <td>{{ emp.email }}</td>
+      <td>{{ emp.action }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="EditEmp(emp)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Hidden Form -->
+
+<div *ngIf="showEdit">
+    <div class="form-group">
+        <label for="editId">ID:</label>
+        <input type="text" id="editId" name="editId" [value]="editingEmployee.id">
+    </div>
+    <div class="form-group">
+      <label for="editFirstName">First Name:</label>
+      <input type="text" id="editFirstName" name="editFirstName" [value]="editingEmployee.firstname">
+    </div>
+    <div class="form-group">
+      <label for="editLastName">Last Name</label>
+      <input type="text" id="editLastName" name="editLastName" [value]="editingEmployee.lastname">
+    </div>
+    <div class="form-group">
+        <label for="editSalary">Salary:</label>
+        <input type="text" id="editSalary" name="editSalary" [value]="editingEmployee.salary">
+    </div>
+    <div class="form-group">
+        <label for="editDOB">DOB:</label>
+        <input type="text" id="editDOB" name="editDOB" [value]="editingEmployee.dob">
+    </div>
+    <div class="form-group">
+        <label for="editEmail">Email:</label>
+        <input type="text" id="editEmail" name="editEmail" [value]="editingEmployee.email">
+    </div>
+    <div class="form-group">
+        <label for="editAction">Action:</label>
+        <input type="text" id="editAction" name="editAction" [value]="editingEmployee.action">
+    </div>
+    
+    <button class="btn btn-success" (click)="UpdateEmp()">Update</button>
+</div>
